@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.*;
@@ -145,8 +146,8 @@ public class TransactionsPage extends JFrame implements ActionListener{
 					connect.close();
 				
 				}
-				catch(Exception ex){ 
-					System.err.println("Got an exception!");
+				catch(SQLException ex){ 
+					System.err.println("Got an SQL exception depositing to savings account!");
 					ex.printStackTrace();
 					System.out.println(ex);
 				}
@@ -196,8 +197,8 @@ public class TransactionsPage extends JFrame implements ActionListener{
 					dialog.setVisible(true);
 					dialog.dispose();
 					connect.close();
-				}catch(Exception ex){ 
-					System.err.println("Got an exception!");
+				}catch(SQLException ex){ 
+					System.err.println("Got an SQL exception depositing to current account!");
 					ex.printStackTrace();
 					System.out.println(ex);
 				}
@@ -229,8 +230,8 @@ public class TransactionsPage extends JFrame implements ActionListener{
 						tempValue = rs.getFloat(8);
 					
 					connect.close();
-				}catch(Exception ex){ 
-					System.out.println(ex);
+				}catch(SQLException ex){ 
+					System.out.println("Got an SQL exception connecting to savings account");
 				}
 			}
 			else {
@@ -271,7 +272,7 @@ public class TransactionsPage extends JFrame implements ActionListener{
 						validate = false;
 					}
 				}catch(Exception ex){ 
-					System.err.println("Got an exception!");
+					System.err.println("Got an exception withdrawing from savings account!");
 					ex.printStackTrace();
 					System.out.println(ex);
 				}
@@ -303,8 +304,8 @@ public class TransactionsPage extends JFrame implements ActionListener{
 						tempValue = rs.getFloat(9);
 						
 					connect.close();
-				}catch(Exception ex){ 
-					System.out.println(ex);
+				}catch(SQLException ex){ 
+					System.out.println("Got an SQL exception connecting to current account!");
 				}
 			}
 			else {
@@ -345,7 +346,7 @@ public class TransactionsPage extends JFrame implements ActionListener{
 					}
 					
 				}catch(Exception ex){ 
-					System.err.println("Got an exception!");
+					System.err.println("Got an SQL exception withdrawing from current account!");
 					ex.printStackTrace();
 					System.out.println(ex);
 				}
@@ -377,8 +378,8 @@ public class TransactionsPage extends JFrame implements ActionListener{
 					tempValue = rs.getFloat(8);
 
 				connect.close();
-			}catch(Exception ex){ 
-				System.out.println(ex);
+			}catch(SQLException ex){ 
+				System.out.println("Got an SQL exception connecting from savings transfer!");
 			}
 		}
 			else {
@@ -420,8 +421,8 @@ public class TransactionsPage extends JFrame implements ActionListener{
 						dialog.dispose();
 						validate = false;
 					}
-				}catch(Exception ex){ 
-					System.err.println("Got an exception!");
+				}catch(SQLException ex){ 
+					System.err.println("Got an SQL exception transferring from savings account!");
 					ex.printStackTrace();
 					System.out.println(ex);
 				}
@@ -453,8 +454,8 @@ public class TransactionsPage extends JFrame implements ActionListener{
 						tempValue = rs.getFloat(9);
 
 					connect.close();
-				}catch(Exception ex){ 
-					System.out.println(ex);
+				}catch(SQLException ex){ 
+					System.out.println("Got an SQL exception connecting to current transfer!");
 				}
 			}
 			else {
@@ -496,8 +497,8 @@ public class TransactionsPage extends JFrame implements ActionListener{
 						dialog.dispose();
 						validate = false;
 					}
-				}catch(Exception ex){ 
-					System.err.println("Got an exception!");
+				}catch(SQLException ex){ 
+					System.err.println("Got an SQL exception transferring from current account!");
 					ex.printStackTrace();
 					System.out.println(ex);
 				}
