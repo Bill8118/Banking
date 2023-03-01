@@ -17,6 +17,7 @@ import javax.swing.*;
 @SuppressWarnings("serial")
 public class TransactionsPage extends JFrame implements ActionListener{
 
+	
 	JLabel depositLabel = new JLabel();
 	JLabel savingsLabel = new JLabel("Savings Deposit   ");
 	JTextField savingsField = new JTextField(5);
